@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <packaging>pom</packaging>
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+       <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.8</version>
+    </parent>
+
+    <groupId>com.lyq</groupId>
+    <artifactId>lyq-studies</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <name>lyq-studies</name>
+    <description>lyq studies project for Spring Boot</description>
+
+    <properties>
+        <spring-boot.version>2.7.8</spring-boot.version>
+        <java.version>17</java.version>
+        <dubbo.version>3.2.0</dubbo.version>
+        <zkclient.version>5.4.0</zkclient.version>
+    </properties>
+
+    <modules>
+        <module>interfaces</module>
+        <module>provider</module>
+        <module>consumer</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--Dubbo-->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
+            <!--zookeeper客户端-->
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-x-discovery</artifactId>
+                <version>${zkclient.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>
